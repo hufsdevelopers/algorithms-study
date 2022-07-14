@@ -1,10 +1,6 @@
 import sys
 
-n = int(sys.stdin.readline())
-cnt = 0
-for H in range(n + 1):
-    for M in range(60):
-        for S in range(60):
-            if '3' in f"{H}{M}{S}":
-                cnt += 1
-print(cnt)
+steps = [(-2, -1), (-1, -2), (1, -2), (2, -1), (2, 1), (1, 2), (-1, 2), (-2, 1)]
+st = sys.stdin.readline()
+pos = [ord(st[0]) - ord('a') + 1, int(st[1])]
+print(len([0 for step in steps if 0 < pos[0] + step[0] <= 8 and 0 < pos[1] + step[1] <= 8]))
